@@ -10,13 +10,16 @@ This is a project for real-time attendence marking. In this project I've implime
  
  
 ## Installation:
+1. Make a verual environment: ```python -m venv face_recognition
 
-Move the faces to be detected in the ```known_images``` folder.
+2. Move the faces to be detected in the ```known_images``` folder.
 
-Download the repo as ```Face-recognition-main.zip``` and open cmd.
+3. Download the repo as ```Face-recognition-main.zip``` and open cmd.
 
-Navigate to the ```Face-recognition-main``` directory.
+4. Navigate to the ```Face-recognition-main``` directory.
 
-Install all the dependecies by running```pip install -m requirements.txt```
+5. Install all the dependecies by running```pip install -m requirements.txt```
 
-Finally run: ```python Real_time_face_detection.py```
+6. Finally run: ```python Real_time_face_detection.py```
+
+
