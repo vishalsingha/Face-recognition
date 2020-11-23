@@ -42,24 +42,29 @@ encodings, names = load_encoding(path)
 cam = cv2.VideoCapture(0)
 
 # real-time detection
+
+cam = cv2.VideoCapture(0)
+
 while 1:
     _, img = cam.read()
-    imgs = cv2.resize(img, (0, 0), None, 1, 1)
-    encode_img = face_recognition.face_encodings(imgs)
-    face_loc = face_recognition.face_locations(imgs)
-    for i in range(len(face_loc)):
-        face = face_loc[i]
-#         face = (face[0]*2, face[1]*2, face[2]*2, face[3]*2)
-        mask = face_recognition.compare_faces(encodings, encode_img[i])
-        cv2.rectangle(img, (face[3], face[0]), (face[1], face[2]), (255, 0, 0))
-        cv2.rectangle(img, (face[3], face[2]-20), (face[1], face[2]), (0, 0, 255), cv2.FILLED)
-        if(names[mask].size):
-            cv2.putText(img, names[mask][0], (face[3], face[2]-5), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 70, 255), 2)
-            MarkAttendence(names[mask][0])
-        else:
-            cv2.putText(img, 'Unknown', (face[3], face[2]-5), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 70, 255), 2)
-    cv2.imshow('img',img)
+    if(_):
+        imgs = cv2.resize(img, (0, 0), None, 0.25, 0.25)
+        encode_img = face_recognition.face_encodings(imgs)
+        face_loc = face_recognition.face_locations(imgs)
+        for i in range(len(face_loc)):
+            face = face_loc[i]
+            face = (face[0]*4, face[1]*4, face[2]*4, face[3]*4)
+            mask = face_recognition.compare_faces(encodings, encode_img[i], tolerance=0.5)
+            cv2.rectangle(img, (face[3], face[0]), (face[1], face[2]), (255, 0, 0))
+            cv2.rectangle(img, (face[3], face[2]-20), (face[1], face[2]), (0, 0, 255), cv2.FILLED)
+            if(names[mask].size):
+                cv2.putText(img, names[mask][0], (face[3], face[2]-5), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 70, 255), 2)
+                MarkAttendence(names[mask][0])
+            else:
+                cv2.putText(img, 'Unknown', (face[3], face[2]-5), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 70, 255), 2)
+        cv2.imshow('img',img)
     if cv2.waitKey(30) & 0xff == ord("q"):
         break
 cam.release()
 cv2.destroyAllWindows()
+
