@@ -23,3 +23,5 @@ This is a project for real-time attendence marking. In this project I've implime
 6. Finally run: ```python Real_time_face_detection.py```
 
 ## result
+
+![video](https://github.com/vishalsingha/Face-recognition/blob/main/results/Elon_musk_detection.gif)
