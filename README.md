@@ -18,7 +18,7 @@ This is a project for real-time attendence marking. In this project I've implime
 
 4. Open <strong>cmd</strong> and Navigate to the ```Face-recognition-main``` directory.
 
-5. Install all the dependecies by running```pip install -m requirements.txt```
+5. Install all the dependecies by running```pip install -r requirements.txt```
 
 6. Finally run: ```python Real_time_face_detection.py```
 
