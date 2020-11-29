@@ -43,8 +43,6 @@ cam = cv2.VideoCapture(0)
 
 # real-time detection
 
-cam = cv2.VideoCapture(0)
-
 while 1:
     _, img = cam.read()
     if(_):
